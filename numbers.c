@@ -8,6 +8,7 @@ void print_menu(void){
   printf("---------\n");
   
   printf("(a) add a number to the end of the list\n");
+  printf("(l) display the list of numbers\n");
   printf("(m) exit\n\n");
 
   printf("Please enter the alphabet of the operation you would like to perform : \n");
@@ -35,12 +36,15 @@ print_menu();
       if (status)
       {
         printf("Number inserted successfully\n");
-      }
-      else
+      }else
       {
         printf("Insertion failed\n");
-      }
-      
+      }      
+      break;
+
+    case 'l' :
+      printf("List of numbers : \n");
+      display(pList);
       break;
 
     default :
