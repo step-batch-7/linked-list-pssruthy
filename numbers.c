@@ -11,6 +11,7 @@ void print_menu(void){
   printf("(a) add a number to the end of the list\n");
   printf("(b) add a number to the start of the list\n");
   printf("(c) insert a number at a given position in the list\n");
+  printf("(d) add a unique item on the list at the end(if it already exists, do not insert)\n");
   printf("(l) display the list of numbers\n");
   printf("(m) exit\n\n");
 
@@ -57,8 +58,17 @@ print_menu();
       printf("Enter a number to insert : ");
       scanf("%d", &number);
       status = insert_at(pList, number, position);
+      if(status == Success) printf("DONE\n");
+      else printf("THE POSITION IS INVALID\n");
       break;
 
+    case 'd' :
+      printf("Enter a unique number to insert : ");
+      scanf("%d",&number);
+      status = add_unique(pList, number);
+      if(status == Success) printf("DONE\n");
+      else printf("THE NUMBER IS ALREADY PRESENT IN THE LIST\n");
+      break;
     case 'l' :
       printf("List of numbers : \n");
       display(pList);

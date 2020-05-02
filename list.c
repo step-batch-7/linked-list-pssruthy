@@ -68,6 +68,17 @@ Status insert_at(List_ptr pList, int value, int position){
   return Success;
 }
 
+Status add_unique(List_ptr pList, int value){
+  Node_ptr p_walk = pList->head;
+  for (int count = 1; count < pList->count; count++)
+  {
+    if(p_walk->value == value) return Failure;  
+    p_walk = p_walk->next;
+  }
+  return add_to_end(pList, value);
+}
+
+
 void display(List_ptr pList){
   Node_ptr p_walk = pList->head;
   int count = 0;
