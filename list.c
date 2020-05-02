@@ -30,6 +30,20 @@ Status add_to_end(List_ptr pList, int value){
   return Success;
 }
 
+Status add_to_start(List_ptr pList, int value){
+  Node_ptr new_node = create_Node(value);
+  if(pList->head == NULL){
+    pList->head = new_node;
+    pList->last = new_node;
+  }else
+  {
+    new_node->next = pList->head;
+    pList->head = new_node;
+  }
+  pList->count++;
+  return Success;
+}
+
 void display(List_ptr pList){
   Node_ptr p_walk = pList->head;
   int count = 0;
