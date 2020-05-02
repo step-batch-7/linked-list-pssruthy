@@ -45,7 +45,7 @@ Status add_to_start(List_ptr pList, int value){
 }
 
 Status insert_at(List_ptr pList, int value, int position){
-  if(position < 0 & position > pList->count) return Failure;
+  if(position < 0 | position > pList->count) return Failure;
   if (position == 0)
   {
     add_to_start(pList, value);
@@ -56,6 +56,7 @@ Status insert_at(List_ptr pList, int value, int position){
     add_to_end(pList, value);
     return Success;
   }
+
   Node_ptr new_node = create_Node(value);
   Node_ptr previous_node = pList->head;
   for (int count = 1; count < position; count++)
