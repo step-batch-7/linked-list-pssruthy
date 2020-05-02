@@ -71,13 +71,25 @@ Status insert_at(List_ptr pList, int value, int position){
 
 Status add_unique(List_ptr pList, int value){
   Node_ptr p_walk = pList->head;
-  for (int count = 1; count < pList->count; count++)
+  for (int count = 0; count < pList->count; count++)
   {
     if(p_walk->value == value) return Failure;  
     p_walk = p_walk->next;
   }
   return add_to_end(pList, value);
 }
+
+Status remove_from_start(List_ptr pList){
+  Node_ptr head = pList->head;
+  if (pList->count == 0) return Failure;
+  if (pList->count == 1) pList->head = pList->last = NULL;
+  else pList->head = head->next;
+
+  free(pList->head);
+  pList->count--;
+  return Success;
+}
+
 
 
 void display(List_ptr pList){
