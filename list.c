@@ -44,6 +44,30 @@ Status add_to_start(List_ptr pList, int value){
   return Success;
 }
 
+Status insert_at(List_ptr pList, int value, int position){
+  if(position < 0 & position > pList->count) return Failure;
+  if (position == 0)
+  {
+    add_to_start(pList, value);
+    return Success;
+  } 
+  if (position == pList->count)
+  {
+    add_to_end(pList, value);
+    return Success;
+  }
+  Node_ptr new_node = create_Node(value);
+  Node_ptr previous_node = pList->head;
+  for (int count = 1; count < position; count++)
+  {
+   previous_node = previous_node->next;
+  }
+  new_node->next = previous_node->next;
+  previous_node->next = new_node;
+  pList->count++;
+  return Success;
+}
+
 void display(List_ptr pList){
   Node_ptr p_walk = pList->head;
   int count = 0;

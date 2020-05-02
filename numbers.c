@@ -10,6 +10,7 @@ void print_menu(void){
   
   printf("(a) add a number to the end of the list\n");
   printf("(b) add a number to the start of the list\n");
+  printf("(c) insert a number at a given position in the list\n");
   printf("(l) display the list of numbers\n");
   printf("(m) exit\n\n");
 
@@ -24,7 +25,7 @@ void print_status(Status status){
 int main(void)
 {
   char user_option;
-  int number;
+  int number, position;
   Status status;
   List_ptr pList = create_list();
 
@@ -48,6 +49,14 @@ print_menu();
       scanf("%d", &number);
       status = add_to_start(pList, number);
       print_status(status);
+      break;
+
+    case 'c' :
+      printf("Enter the position to insert : ");
+      scanf("%d", &position);
+      printf("Enter a number to insert : ");
+      scanf("%d", &number);
+      status = insert_at(pList, number, position);
       break;
 
     case 'l' :
