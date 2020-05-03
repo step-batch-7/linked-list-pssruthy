@@ -13,6 +13,7 @@ void print_menu(void){
   printf("(c) insert a number at a given position in the list\n");
   printf("(d) add a unique item on the list at the end\n");
   printf("(e) remove a number from the beginning of the list\n");
+  printf("(f) remove a number from the end of the list\n");
   printf("(l) display the list of numbers\n");
   printf("(m) exit\n\n");
 
@@ -31,9 +32,8 @@ int main(void)
   Status status;
   List_ptr pList = create_list();
 
-
-print_menu();
-    scanf(" %c", &user_option);
+  print_menu();
+  scanf(" %c", &user_option);
 
   while (user_option !='m')
   {
@@ -75,7 +75,12 @@ print_menu();
       status = remove_from_start(pList);
       print_status(status);
       break;
-      
+
+    case 'f' :
+      status = remove_from_end(pList);
+      print_status(status);
+      break;
+
     case 'l' :
       printf("List of numbers : \n");
       display(pList);

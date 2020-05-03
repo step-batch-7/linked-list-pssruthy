@@ -85,12 +85,28 @@ Status remove_from_start(List_ptr pList){
   if (pList->count == 1) pList->head = pList->last = NULL;
   else pList->head = head->next;
 
-  free(pList->head);
+  free(head);
   pList->count--;
   return Success;
 }
 
-
+Status remove_from_end(List_ptr pList){
+  Node_ptr last = pList->last;
+  Node_ptr p_walk =  pList->head;
+  if (pList->count == 0) return Failure;
+  if (pList->count == 1) pList->last = pList->head = NULL;
+  else {
+    for (int count = 1; count < pList->count - 1; count++)
+    {
+      p_walk = p_walk->next;
+    }
+    p_walk->next = NULL;  
+    pList->last = p_walk;
+  }
+  free(last);
+  pList->count--;
+  return Success;
+}
 
 void display(List_ptr pList){
   Node_ptr p_walk = pList->head;
