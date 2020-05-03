@@ -14,6 +14,7 @@ void print_menu(void){
   printf("(d) add a unique item on the list at the end\n");
   printf("(e) remove a number from the beginning of the list\n");
   printf("(f) remove a number from the end of the list\n");
+  printf("(g) remove a number from a given position in the list\n");
   printf("(l) display the list of numbers\n");
   printf("(m) exit\n\n");
 
@@ -78,6 +79,13 @@ int main(void)
 
     case 'f' :
       status = remove_from_end(pList);
+      print_status(status);
+      break;
+
+    case 'g' :
+      printf("Enter the position to remove : ");
+      scanf("%d", &position);
+      status = remove_at(pList, position);
       print_status(status);
       break;
 

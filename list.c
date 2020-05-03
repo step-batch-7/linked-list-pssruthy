@@ -108,6 +108,31 @@ Status remove_from_end(List_ptr pList){
   return Success;
 }
 
+Status remove_at(List_ptr pList, int position){
+  if (position < 0 | position >= pList->count) return Failure;
+  if (position == 0 )
+  {
+    remove_from_start(pList);
+    return Success;
+  }
+  if (position == pList->count - 1 )
+  {
+    remove_from_end(pList);
+    return Success;
+  }
+  
+  Node_ptr p_walk = pList->head;
+  for (int count = 0; count < position - 1; count++)
+  {
+    p_walk = p_walk->next;
+  }
+  Node_ptr node_to_remove = p_walk->next;
+  p_walk->next = node_to_remove->next;
+  pList->count--;
+  free(node_to_remove);
+  return Success;
+}
+
 void display(List_ptr pList){
   Node_ptr p_walk = pList->head;
   int count = 0;
