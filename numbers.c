@@ -18,6 +18,7 @@ void print_menu(void){
   printf("(h) remove first occurrence of a number\n");
   printf("(i) remove all occurrences of a number\n");
   printf("(j) clear the whole list\n");
+  printf("(k) check if a number exists in the list\n");
   printf("(l) display the list of numbers\n");
   printf("(m) exit\n\n");
 
@@ -113,6 +114,14 @@ int main(void)
       print_status(status);
       break;
 
+    case 'k' :
+      printf("Enter the number to check the existence : ");
+      scanf("%d", &number);
+      status = is_number_exist(pList, number);
+      if(status == Success) printf("NUMBER EXISTS IN THE LIST");
+      else printf("NUMBER NOT EXISTS IN THE LIST");
+      break;
+      
     case 'l' :
       printf("List of numbers : \n");
       display(pList);

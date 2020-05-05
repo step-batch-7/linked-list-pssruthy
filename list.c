@@ -177,6 +177,20 @@ Status clear_list(List_ptr pList){
   return Success;
 }
 
+Status is_number_exist(List_ptr pList, int number){
+  Node_ptr p_walk = pList->head;
+  while (p_walk != NULL)
+  {
+    if (p_walk->value == number)
+    {
+      return Success;
+    }
+    p_walk = p_walk->next;
+  }
+  
+  return Failure;
+}
+
 void display(List_ptr pList){
   Node_ptr p_walk = pList->head;
   int count = 0;
