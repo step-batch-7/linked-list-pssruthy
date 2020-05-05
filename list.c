@@ -201,3 +201,8 @@ void display(List_ptr pList){
     count++;
   }
 }
+
+void destroy_list(List_ptr pList){
+  clear_list(pList);
+  free(pList);
+}

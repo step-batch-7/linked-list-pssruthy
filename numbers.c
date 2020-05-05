@@ -121,7 +121,7 @@ int main(void)
       if(status == Success) printf("NUMBER EXISTS IN THE LIST");
       else printf("NUMBER NOT EXISTS IN THE LIST");
       break;
-      
+
     case 'l' :
       printf("List of numbers : \n");
       display(pList);
@@ -133,5 +133,6 @@ int main(void)
     print_menu();
     scanf(" %c", &user_option);
   }
+  destroy_list(pList);
   return 0;
 }
