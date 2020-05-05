@@ -133,6 +133,21 @@ Status remove_at(List_ptr pList, int position){
   return Success;
 }
 
+Status remove_first_occurrence(List_ptr pList, int value){
+  Node_ptr p_walk = pList->head;
+  int position = 0;
+  while (p_walk != NULL)
+  {
+    if (p_walk->value == value )
+    {
+      return remove_at(pList, position);
+    }
+    position++;
+    p_walk = p_walk->next;
+  }
+  return Failure;
+}
+
 void display(List_ptr pList){
   Node_ptr p_walk = pList->head;
   int count = 0;
