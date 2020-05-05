@@ -167,6 +167,16 @@ Status remove_all_occurrences(List_ptr pList, int value){
   return status;
 }
 
+Status clear_list(List_ptr pList){
+  Node_ptr p_walk = pList->head;
+  while (p_walk != NULL)
+  {
+    remove_from_start(pList);
+    p_walk = p_walk->next;
+  }
+  return Success;
+}
+
 void display(List_ptr pList){
   Node_ptr p_walk = pList->head;
   int count = 0;

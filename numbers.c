@@ -17,6 +17,7 @@ void print_menu(void){
   printf("(g) remove a number from a given position in the list\n");
   printf("(h) remove first occurrence of a number\n");
   printf("(i) remove all occurrences of a number\n");
+  printf("(j) clear the whole list\n");
   printf("(l) display the list of numbers\n");
   printf("(m) exit\n\n");
 
@@ -105,6 +106,11 @@ int main(void)
       status = remove_all_occurrences(pList, number);
       if(status == Success) printf("DONE\n");
       else printf("THE NUMBER IS NOT PRESENT IN THE LIST\n");
+      break;
+
+    case 'j' :
+      status = clear_list(pList);
+      print_status(status);
       break;
 
     case 'l' :
